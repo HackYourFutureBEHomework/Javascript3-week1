@@ -23,7 +23,7 @@
 <script>
 
 document.querySelector('#button1').addEventListener('click', () => {
-    fetch('teachers.json')
+    fetch('data/teachers.json')
         .then(res => res.json())
         .then(data => {
             const $content = document.querySelector('#content');
@@ -31,7 +31,8 @@ document.querySelector('#button1').addEventListener('click', () => {
             data['teachers'].forEach(t => {
                 const $p = document.createElement('p');
                 $content.appendChild($p);
-                $p.innerHTML = 'Hello ' + t.name;
+                $p.innerHTML = `Hello ${t['name']}, how are things in ${t.city}?`
+
             });
         });
 });
